@@ -5,7 +5,7 @@ else
   class ActsAsTaggableOnMigration < ActiveRecord::Migration; end
 end
 ActsAsTaggableOnMigration.class_eval do
-  def self.up
+  def up
     create_table :tags do |t|
       t.string :name
     end
