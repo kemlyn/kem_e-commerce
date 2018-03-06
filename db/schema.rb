@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180305152752) do
+ActiveRecord::Schema.define(version: 20180306105629) do
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "name"
     t.text "description"
+    t.string "name"
     t.string "sku"
     t.integer "cost"
     t.integer "price"
