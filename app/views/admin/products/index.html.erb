@@ -4,18 +4,24 @@
 <table class="table">
   <thead>
     <tr>
+      <th scope="col">sku#</th>
       <th scope="col">stock</th>
       <th scope="col">product</th>
+      <th scope="col">price</th>
+      <th scope="col">cost</th>
       <th scope="col">options</th>
     </tr>
   </thead>
   <tbody>
     <% @products.each do |product|%>
     <tr>
+      <td><%= product.sku %></td>
       <td><%= product.stock %></td>
-      <td><%= link_to product.name, admin_product_path(product)%></td>
+      <td><%= link_to product.name, root_path(product)%></td>
+      <td><%= product.price %></td>
+      <td><%= product.cost %></td>
       <td><%= link_to 'Edit', edit_admin_product_path(product), class: 'btn btn-outline-info' %>
-          <%= link_to 'Destroy', admin_product_path(product), method: :delete, class: 'btn btn-outline-danger' %>
+          <%= link_to 'Destroy', admin_product_path(product), method: :delete, class: 'btn btn-outline-danger' %></td>
     </tr>
     <% end %>
   </tbody>

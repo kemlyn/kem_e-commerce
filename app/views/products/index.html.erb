@@ -1,7 +1,7 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">stock</th>
+      <th scope="col">price</th>
       <th scope="col">product</th>
       <th scope="col">options</th>
     </tr>
@@ -9,10 +9,10 @@
   <tbody>
     <% @products.each do |product|%>
     <tr>
-      <td><%= @product.stock %></td>
+      <td><%= product.price %></td>
       <td><%= link_to product.name, admin_product_path(product)%></td>
-      <td><%= link_to 'Edit', edit_admin_products_path(product), class: 'btn btn-outline-info' %>
-          <%= link_to 'Destroy', admin_products_path(product), method: :delete, class: 'btn btn-outline-danger' %>
+      <td><%= link_to 'Edit', edit_product_path(product), class: 'btn btn-outline-info' %>
+          <%= link_to 'Destroy', root_path(product), method: :delete, class: 'btn btn-outline-danger' %>
     </tr>
     <% end %>
   </tbody>
