@@ -1,18 +1,17 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">price</th>
+      <th scope="col">stock left</th>
       <th scope="col">product</th>
-      <th scope="col">options</th>
+      <th scope="col">price</th>
     </tr>
   </thead>
   <tbody>
     <% @products.each do |product|%>
     <tr>
-      <td><%= product.price %></td>
-      <td><%= link_to product.name, admin_product_path(product)%></td>
-      <td><%= link_to 'Edit', edit_product_path(product), class: 'btn btn-outline-info' %>
-          <%= link_to 'Destroy', root_path(product), method: :delete, class: 'btn btn-outline-danger' %>
+      <td><%= product.stock %> left!</td>
+      <td><%= link_to product.name, product_path(product)%></td>
+      <td>£<%= product.price %></td>
     </tr>
     <% end %>
   </tbody>
