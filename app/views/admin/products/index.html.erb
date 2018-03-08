@@ -5,6 +5,7 @@
   <thead>
     <tr>
       <th scope="col">sku#</th>
+      <th scope="col">product image</th>
       <th scope="col">stock</th>
       <th scope="col">product</th>
       <th scope="col">price</th>
@@ -16,6 +17,7 @@
     <% @products.each do |product|%>
     <tr>
       <td><%= product.sku %></td>
+      <td><%= image_tag product.image.thumb('300x200#').url if product.image_stored? %></td>
       <td><%= product.stock %> left</td>
       <td><%= link_to product.name, product_path(product)%></td>
       <td>£<%= product.price %></td>
