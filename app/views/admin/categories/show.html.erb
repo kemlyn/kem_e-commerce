@@ -1,0 +1,18 @@
+<h1 class="text-info">Categories</h1>
+<hr class="my-6">
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Categories</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @categories.each do |category| %>
+    <tr>
+      <td><%= category.name %></td>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

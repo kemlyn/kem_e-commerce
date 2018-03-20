@@ -1,6 +1,14 @@
-<h1>Admin page for products</h1>
-<%= link_to 'Add New Product', new_admin_product_path, class: 'nav-item nav-link' %>
-
+<section class="row-center text-center placeholders">
+  <div class="center" align="middle">
+    <h1>Admin</h1>
+    <img src= "https://images.pexels.com/photos/712786/pexels-photo-712786.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb" width="200" height="200" class="img-fluid rounded-circle" alt="Generic image" align="middle">
+    <h4>create something new?</h4>
+    <div class="text-muted" align="center"> <%= link_to 'Click here', new_admin_product_path, class: 'nav-item nav-link' %>
+    <div class="text-muted"> <%= link_to 'what about categories?', new_admin_category_path, class: 'nav-item nav-link' %>
+    </div>
+    </div>
+  </div>
+</section>
 <table class="table">
   <thead>
     <tr>
@@ -16,8 +24,8 @@
   <tbody>
     <% @products.each do |product|%>
     <tr>
-      <td><%= product.sku %></td>
-      <td><%= image_tag product.image.thumb('300x200#').url if product.image_stored? %></td>
+      <td>#<%= product.sku %></td>
+      <td><%= image_tag product.image.thumb('200x100#').url if product.image_stored? %></td>
       <td><%= product.stock %> left</td>
       <td><%= link_to product.name, product_path(product)%></td>
       <td>£<%= product.price %></td>
@@ -26,5 +34,6 @@
           <%= link_to 'Destroy', admin_product_path(product), method: :delete, class: 'btn btn-outline-danger' %></td>
     </tr>
     <% end %>
+
   </tbody>
 </table>

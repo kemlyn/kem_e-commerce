@@ -3,18 +3,18 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">stock left</th>
+      <th scope="col">price</th>
       <th scope="col">product image</th>
       <th scope="col">description</th>
-      <th scope="col">price</th>
+      <th scope="col">stock left</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><%= @product.stock %> left!</td>
-      <td><%= image_tag @product.image.thumb('300x200#').url if @product.image_stored? %></td>
-      <td><%= @product.description %></td>
       <td>£<%= @product.price %></td>
+      <td><%= image_tag @product.image.thumb('250x150#').url if @product.image_stored? %></td>
+      <td><%= @product.description %></td>
+      <td><%= @product.stock %> left!</td>
     </tr>
   </tbody>
 </table>

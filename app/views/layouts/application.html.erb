@@ -16,8 +16,22 @@
   </head>
 
   <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class=" col-lg-2">
+          <nav class="hidden-xs-down bg-faded sidebar">
+            <ul class="nav nav-pills flex-column">
+             <%= link_to 'Product managment', admin_products_path, class: 'nav-item nav-link' %>
+             <%= link_to 'all products', products_path, class: 'nav-item nav-link' %>
+           </ul>
+          </nav>
+        </div>
+        <div class=" col-lg-10">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
   </body>
 </html>

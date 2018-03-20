@@ -1,19 +1,19 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">stock left</th>
+      <th scope="col">price</th>
       <th scope="col">product image</th>
       <th scope="col">product</th>
-      <th scope="col">price</th>
+      <th scope="col">stock left</th>
     </tr>
   </thead>
   <tbody>
     <% @products.each do |product|%>
     <tr>
-      <td><%= product.stock %> left!</td>
-      <td><%= image_tag product.image.thumb('300x200#').url if product.image_stored? %></td>
-      <td><%= link_to product.name, product_path(product)%></td>
       <td>£<%= product.price %></td>
+      <td><%= image_tag product.image.thumb('200x100#').url if product.image_stored? %></td>
+      <td><%= link_to product.name, product_path(product)%></td>
+      <td><%= product.stock %> left!</td>
     </tr>
     <% end %>
   </tbody>

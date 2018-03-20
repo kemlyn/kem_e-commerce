@@ -3,8 +3,10 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :products
+    resources :categories
   end
   resources :products
+  resources :categories
 
   root to: 'products#index'
 end
