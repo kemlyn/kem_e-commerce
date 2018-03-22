@@ -8,7 +8,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <style media="screen">
       body{
-        background-color: #edefe4;
+        background-color: #e3f2fd;
         padding: 10px;
         text-align: center;
       }
@@ -16,21 +16,32 @@
   </head>
 
   <body>
-    <div class="container-fluid">
-      <div class="row">
-        <div class=" col-lg-2">
-          <nav class="hidden-xs-down bg-faded sidebar">
-            <ul class="nav nav-pills flex-column">
-             <%= link_to 'Product managment', admin_products_path, class: 'nav-item nav-link' %>
-             <%= link_to 'all products', products_path, class: 'nav-item nav-link' %>
-           </ul>
-          </nav>
-        </div>
-        <div class=" col-lg-10">
-          <%= yield %>
-        </div>
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg ">
+      <%= link_to 'Home', products_path, class: 'navbar-brand' %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <%= link_to 'Product managment', admin_products_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href='/categories' id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Categories
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to 'All Categories', categories_path, class: 'dropdown-item' %>
+            </div>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search All" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
       </div>
-    </div>
+    </nav>
+    <%= yield %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
   </body>

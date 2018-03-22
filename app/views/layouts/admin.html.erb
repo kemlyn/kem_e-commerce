@@ -18,10 +18,11 @@
     <div class="container-fluid">
       <div class="row">
         <div class=" col-lg-2">
-          <nav class="hidden-xs-down bg-light sidebar" style="background-color: #e3f2fd;">
+          <nav class="hidden-xs-down sidebar" >
             <ul class="nav nav-pills flex-column">
              <%= link_to 'User Page', products_path, class: 'nav-item nav-link' %>
-             <%= link_to 'categories', admin_category_path , class: 'nav-item nav-link' %>
+             <div class="text-muted"> <%= link_to 'Categories', admin_categories_path, class: 'nav-item nav-link' %></div>
+             <%= link_to 'All Admin Products', admin_products_path, class: 'nav-item nav-link' %>
            </ul>
          </nav>
         </div>

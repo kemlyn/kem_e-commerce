@@ -1,4 +1,4 @@
-<h1 class="text-info"><%= @product.name %></h1>
+<h1 class="text-info"><%= @category.name %> products</h1>
 <hr class="my-6">
 
 <table class="table">
@@ -6,16 +6,16 @@
     <tr>
       <th scope="col">price</th>
       <th scope="col">product image</th>
-      <th scope="col">description</th>
+      <th scope="col">product</th>
       <th scope="col">stock left</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>£<%= @product.price %></td>
-      <td><%= image_tag @product.image.thumb('250x150#').url if @product.image_stored? %></td>
-      <td><%= @product.description %></td>
-      <td><%= @product.stock %> left!</td>
+      <td><%= @product %></td>
+      <td><%= @product %></td>
+      <td><%= @product %> left!</td>
     </tr>
   </tbody>
 </table>
