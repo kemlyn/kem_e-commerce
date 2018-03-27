@@ -2,6 +2,7 @@ class Product < ApplicationRecord
   extend FriendlyId
 
   dragonfly_accessor :image
+  paginates_per 3
 
   belongs_to :category, optional: true
 
