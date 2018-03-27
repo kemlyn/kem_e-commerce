@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :products
     resources :categories
   end
+  resources :basket_items
   resources :products
   resources :categories do
     resources :products
