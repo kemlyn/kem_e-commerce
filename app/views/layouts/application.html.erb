@@ -8,7 +8,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <style media="screen">
       body{
-        background-color: #e3f2fd;
+        background-color: #ebebe7;
         padding: 10px;
         text-align: center;
       }
@@ -26,6 +26,9 @@
           <li class="nav-item">
             <%= link_to 'Product managment', admin_products_path, class: 'nav-link' %>
           </li>
+          <li class="nav-item">
+            <%= link_to 'Your Basket',basket_items_path, class: 'nav-link' %>
+          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href='/categories' id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Categories
@@ -39,10 +42,15 @@
           <input class="form-control mr-sm-2" type="search" placeholder="Search All" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
+        <% if user_signed_in?%>
+          <%= link_to 'Log Out', destroy_user_session_path, class: 'nav-item nav-link', method: :delete %>
+        <% else %>
+          <%= link_to 'Log In', new_user_session_path, class: 'nav-item nav-link' %>
+        <% end %>
       </div>
     </nav>
-    <%= yield %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <%= yield %>
   </body>
 </html>

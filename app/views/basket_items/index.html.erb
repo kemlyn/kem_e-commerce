@@ -1,1 +1,38 @@
+<%total=0%>
 <h1>test</h1>
+<nav>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">price</th>
+        <th scope="col">name</th>
+        <th scope="col">quantity</th>
+        <th scope="col">options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @basket_items.each do |basket_item| %>
+      <tr>
+        <td>£<%= basket_item.product.price %></td>
+        <td><%= link_to basket_item.product.name, basket_item.product %></td>
+        <td>
+          <%= form_for basket_item, method: :put do |f| %>
+          <%= f.text_field  :quantity%>
+          <%= f.submit 'submit', class: 'btn btn-outline-success' %>
+          <%end%>
+        </td>
+        <td><%= link_to 'delete', basket_item, method: :delete, class: 'btn btn-outline-danger' %></td>
+      </tr>
+      <%total= total+basket_item.product.price*basket_item.quantity%>
+      <% end %>
+    </tbody>
+  </table>
+  <table>
+    <tbody>
+      <tr>
+        <td>total = </td>
+        <td>£<%=total%></td>
+      </tr>
+    </tbody>
+  </table>
+</nav>

@@ -8,6 +8,7 @@
         <th scope="col">product image</th>
         <th scope="col">product</th>
         <th scope="col">stock left</th>
+        <th scope="col">options</th>
       </tr>
     </thead>
     <tbody>
@@ -17,6 +18,12 @@
         <td><%= image_tag product.image.thumb('200x100#').url if product.image_stored? %></td>
         <td><%= link_to product.name, product_path(product)%></td>
         <td><%= product.stock %> left!</td>
+        <td>
+          <%= form_tag basket_items_path do %>
+          <%= submit_tag 'add to cart' %>
+          <%= hidden_field(:basket_item, :product_id, value: product.id) %>
+          <%end%>
+        </td>
       </tr>
       <% end %>
     </tbody>
