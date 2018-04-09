@@ -17,6 +17,12 @@
       <td><%= image_tag @product.image.thumb('250x150#').url if @product.image_stored? %></td>
       <td><%= @product.description %></td>
       <td><%= @product.stock %> left!</td>
+      <td>
+        <%= form_tag basket_items_path do %>
+        <%= submit_tag 'add to cart' %>
+        <%= hidden_field(:basket_item, :product_id, value: @product.id) %>
+        <%end%>
+      </td>
     </tr>
   </tbody>
 </table>
