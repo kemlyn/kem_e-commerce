@@ -13,11 +13,7 @@
     <%@users.each do |user|%>
     <tr>
       <td><%=user.email%></td>
-      <td>
-        <%if user.deleted?%>
-        <%=user.deleted_at%>
-        <%end%>
-      </td>
+      <td><%=user.deleted_at%></td>
       <td>
         <%if user.deleted_at%>
         <%=link_to 'Restore User', restore_admin_user_path(user),class: 'btn btn-outline-info'%>
