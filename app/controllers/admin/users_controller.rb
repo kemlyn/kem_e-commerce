@@ -1,10 +1,10 @@
 class Admin::UsersController < Admin::BaseController
   def index
-    @user = User.all
+    @users = User.unscoped
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.unscoped
   end
 
   def create
@@ -15,21 +15,23 @@ class Admin::UsersController < Admin::BaseController
     @user = User.new
   end
 
-  def edit
-    @user = User.find(params[:id])
+  def restore
+    @user = User.unscoped.find(params[:id])
+    @user.restore
+    redirect_to admin_users_path
   end
 
   def update
     @user = User.find(params[:id])
-    @user = User.update(user_params)
   end
 
   def destroy
     @user = User.find(params[:id])
-    @user = User.destroy
+    @user.destroy
+    redirect_to admin_users_path
   end
 
   def user_params
-    params.require(:user).permit(:email, :password)
+    params.require(:user).permit(:email)
   end
 end

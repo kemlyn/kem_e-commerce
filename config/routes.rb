@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :products
     resources :categories
+    resources :users do
+      member do
+        get :restore
+      end
+    end
   end
   resources :basket_items
   resources :products

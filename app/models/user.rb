@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  acts_as_paranoid
+
   has_many :basket_items
   has_many :products, through: :basket_items
   # Include default devise modules. Others available are:
