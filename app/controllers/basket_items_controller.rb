@@ -9,10 +9,10 @@ class BasketItemsController < ApplicationController
     @basket_item = BasketItem.find(params[:id])
     if @basket_item[:quantity].zero?
       @basket_item.destroy
-      redirect_to basket_items_path
     else
       @basket_item.update(basket_params)
     end
+    redirect_to basket_items_path
   end
 
   def create
