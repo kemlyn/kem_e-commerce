@@ -1,12 +1,4 @@
 class OrdersController < ApplicationController
-  def index
-    @orders = Order.all
-  end
-
-  def show
-    @order = Order.find(params[:id])
-  end
-
   def new
     @order = Order.new
   end
@@ -19,22 +11,6 @@ class OrdersController < ApplicationController
     else
       redirect_to products_path
     end
-  end
-
-  def update
-    @order = Order.find(params[:id])
-    @order.update(order_params)
-    redirect_to basket_items_path
-  end
-
-  def edit
-    @order = Order.find(params[:id])
-  end
-
-  def destroy
-    @order = Order.find(params[:id])
-    @order.really_destroy!
-    redirect_to basket_items_path
   end
 
   def order_params
