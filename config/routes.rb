@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     end
   end
   resources :basket_items
+  resources :orders
   resources :products
   resources :categories do
     resources :products

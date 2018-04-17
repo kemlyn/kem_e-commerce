@@ -4,6 +4,8 @@ class CreateOrder < ActiveRecord::Migration[5.1]
       t.integer :quantity
       t.integer :total
       t.string :product
+      t.text :address
+      t.string :banking_detail
     end
   end
 end

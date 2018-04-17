@@ -27,11 +27,17 @@
       <% end %>
     </tbody>
   </table>
-  <table>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th scope='col'>total</th>
+        <th scope='col'>options</th>
+      </tr>
+    </thead>
     <tbody>
       <tr>
-        <td>total = </td>
-        <td>£<%=total%></td>
+        <td>£ <%=total%></td>
+        <td><%=link_to 'checkout', new_order_path(@order)%></td>
       </tr>
     </tbody>
   </table>

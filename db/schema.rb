@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 20180412092000) do
     t.integer "quantity"
     t.integer "total"
     t.string "product"
+    t.text "address"
+    t.string "banking_detail"
   end
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
