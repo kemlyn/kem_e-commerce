@@ -1,15 +1,17 @@
 class OrdersController < ApplicationController
   def new
-    @order = Order.new
+    @order = current_user.orders.new
   end
 
   def create
-    @order = Order.new(order_params)
+    @order = current_user.orders.new(order_params)
     if @order.save
       OrderMailer.order_recieved(@order).deliver
-      redirect_to new_order_path
-    else
+      flash.notice = 'order complete!'
       redirect_to products_path
+    else
+      flash.notice = 'error has occured'
+      render :new
     end
   end
 
