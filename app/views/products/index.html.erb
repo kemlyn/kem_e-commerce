@@ -17,7 +17,7 @@
         <td>£<%= product.price %></td>
         <td><%= image_tag product.image.thumb('200x100#').url if product.image_stored? %></td>
         <td><%= link_to product.name, product_path(product)%></td>
-        <td><%= product.stock %> left!</td>
+        <td><%=product.stock %> left!</td>
         <td>
           <%= form_tag basket_items_path do %>
           <%= submit_tag 'add to cart' %>

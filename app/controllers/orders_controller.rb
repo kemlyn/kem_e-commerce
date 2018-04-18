@@ -9,10 +9,16 @@ class OrdersController < ApplicationController
       OrderMailer.order_recieved(@order).deliver
       flash.notice = 'order complete!'
       redirect_to products_path
+      @basket_item = BasketItem.destroy_all
     else
       flash.notice = 'error has occured'
       render :new
     end
+  end
+
+  def destroy
+    @basket_item = BasketItem.find(params[:id])
+    @basket_item.destroy
   end
 
   def order_params
