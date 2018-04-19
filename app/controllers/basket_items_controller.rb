@@ -1,6 +1,6 @@
 class BasketItemsController < ApplicationController
   def index
-    @basket_items = current_user.basket_items
+    @basket_items = current_user.basket_items.in_basket
   end
 
   def update

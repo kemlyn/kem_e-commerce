@@ -1,4 +1,8 @@
 class OrdersController < ApplicationController
+  def index
+    @basket_items = current_user.basket_items
+  end
+
   def new
     @order = current_user.orders.new
   end
@@ -13,8 +17,8 @@ class OrdersController < ApplicationController
       end
       OrderMailer.order_recieved(@order).deliver
       flash.notice = 'order complete!'
+      @order.basket_items += current_user.basket_items
       redirect_to products_path
-      @basket_item = BasketItem.destroy_all
     else
       flash.notice = 'error has occured'
       render :new
