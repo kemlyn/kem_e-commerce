@@ -1,5 +1,4 @@
 <%total=0%>
-<h1>test</h1>
 <nav>
   <table class="table">
     <thead>
@@ -37,7 +36,7 @@
     <tbody>
       <tr>
         <td>£ <%=total%></td>
-        <td><%=link_to 'checkout', new_order_path(@order)%></td>
+        <td><%=link_to 'checkout', new_order_path(@order)%> or <%=link_to 'Buy more!', products_path(@product)%></td>
       </tr>
     </tbody>
   </table>

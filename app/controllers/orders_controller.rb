@@ -6,6 +6,11 @@ class OrdersController < ApplicationController
   def create
     @order = current_user.orders.new(order_params)
     if @order.save
+      current_user.basket_items.each do |basket_item|
+        product = basket_item.product
+        product.stock -= basket_item.quantity
+        product.save
+      end
       OrderMailer.order_recieved(@order).deliver
       flash.notice = 'order complete!'
       redirect_to products_path
