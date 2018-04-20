@@ -1,1 +1,19 @@
-<h1>test</h1>
+<h1>Order History</h1>
+<nav>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">orders</th>
+        <th scope="col">total of that order</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%@orders.each do |order|%>
+      <tr>
+        <td><%=order.id%></td>
+        <td>£<%=order.total%></td>
+      </tr>
+      <%end%>
+    </tbody>
+  </table>
+</nav>

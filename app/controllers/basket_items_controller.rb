@@ -3,6 +3,10 @@ class BasketItemsController < ApplicationController
     @basket_items = current_user.basket_items.in_basket
   end
 
+  def show
+    @basket_item = current_user.basket_items.find(params[:id])
+  end
+
   def update
     @basket_item = BasketItem.find(params[:id])
     if @basket_item[:quantity].zero?
